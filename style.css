@@ -1,0 +1,136 @@
+body {
+    background-color: rgb(204, 216, 216);
+    margin-top: 50px;
+    font-family:'M PLUS Rounded 1c', sans-serif;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.filter-area {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filter-button {
+    padding: 6px 16px;
+    background-color: #bbcce6;
+    color: rgb(34, 43, 56);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.filter-button:hover {
+    background-color: #a0b8d1;
+}
+
+.filter-button.active {
+    background-color: #7499c1;
+    color: white;
+}
+.filter-button.active:hover {
+    background-color: #5a77a0;
+}
+
+.song-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+}
+
+.song-card {
+    background-color: rgb(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 16px;
+    margin: 8px;
+    width: 300px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+
+}
+.song-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.tag-joysound {
+    display: inline-block;
+    background-color: rgb(192, 224, 221);
+    border-radius: 4px;
+    padding: 4px 8px;
+    margin-right: 4px;
+}
+
+.tag-dam {
+    display: inline-block;
+    background-color: rgb(201, 227, 214);
+    border-radius: 4px;
+    padding: 4px 8px;
+    margin-right: 4px;
+}
+
+.artist {
+    margin: 4px 0 12px;
+}
+
+.search-area {
+    display: flex;
+    gap: 8px;
+    margin: 20px 0;
+}
+
+.search-input {
+    padding: 8px;
+    border: 1px solid #c3bdbd;
+    border-radius: 8px;
+    width: 200px;
+    outline: none;
+}
+.search-input:focus {
+    border-color: #7499c1;
+    box-shadow: 0 0 5px rgba(116, 153, 193, 0.5);
+}
+
+.search-button {
+    padding: 8px 16px;
+    background-color: #7499c1;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.search-button:hover {
+    background-color: #5a77a0;
+}
+.search-button:active {
+    transform: translateY(2px) scale(0.98);
+}
+
+.favorite-button {
+    background: none;
+    border: none;
+    font-size: 25px;
+    color: #f0d800;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.favorite-button:hover {
+    color: #e8bf38;
+}
+
+.tag-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
