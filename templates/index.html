@@ -24,13 +24,33 @@
             <p>検索ワード：{{ search_word }}</p>
         </form>
 
-        <!-- フィルター -->
         <section class="filter-area">
             <p>フィルター:</p>
-            <button class="filter-button">すべて</button>
-            <button class="filter-button">JOYSOUND</button>
-            <button class="filter-button">DAM</button>
-            <button class="filter-button active">お気に入り</button>
+
+            <a href="/" class="filter-button">すべて</a>
+
+            <a href="/?filter=joysound" class="filter-button">JOYSOUND</a>
+
+            <a href="/?filter=dam" class="filter-button">DAM</a>
+
+            <a href="/?filter=favorite" class="filter-button {% if filter_type == 'favorite' %}active{% endif %}">お気に入り</a>
+        </section>
+
+        <!-- 曲追加エリア -->
+        <section class="add-area">
+            <form action="/" method="post">
+                <input type="text" placeholder="曲名" name="song_title" required>
+                <input type="text" placeholder="アーティスト名" name="artist" required>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="joysound" name="joysound">
+                    <label for="joysound">JOYSOUND</label>
+                    <input type="checkbox" id="dam" name="dam">
+                    <label for="dam">DAM</label>
+                    <input type="checkbox" id="favorite" name="favorite">
+                    <label for="favorite">お気に入り</label>
+                </div>
+                <button class="add-button">曲を追加</button>
+            </form>
         </section>
 
         <!-- 曲カード一覧 -->
@@ -41,10 +61,32 @@
                 <article class="song-card">
                     <h2>{{ song.title }}</h2>
                     <p class="artist">{{ song.artist }}</p>
+                    
                     <div class="tag-button">
-                        <span class="tag-joysound">JOYSOUND</span>
-                        <span class="tag-dam">DAM</span>
-                        <button class="favorite-button">★</button>
+                        {% if song.joysound %}
+                            <span class="tag-joysound">JOYSOUND</span>
+                        {% endif %}
+                        {% if song.dam %}
+                            <span class="tag-dam">DAM</span>
+                        {% endif %}
+                        <form method="post">
+                            <!-- どの曲か -->
+                            <input type="hidden" name="song_id" value="{{ song.id }}">
+                            <!-- 何の操作か -->
+                            <input type="hidden" name="action" value="toggle_favorite">
+                            <!-- ボタン -->
+                            <button type="submit" class="favorite-button">
+                                {% if song.favorite %}
+                                    ★
+                                {% else %}
+                                    ☆
+                                {% endif %}
+                            </button>
+                        </form>
+                        <form action="" method="post">
+                            <input type="hidden" name="song_id" value="{{ song.id }}">
+                            <button class="delete-button" type="submit">削除</button>
+                        </form>
                     </div>
                 </article>
                 {% endfor %}

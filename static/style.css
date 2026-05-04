@@ -26,6 +26,9 @@ body {
     border-radius: 8px;
     cursor: pointer;
     transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
 }
 
 .filter-button:hover {
@@ -53,7 +56,7 @@ body {
     padding: 16px;
     margin: 8px;
     width: 300px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: 0.3s;
 
 }
@@ -133,4 +136,42 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
+}
+
+.add-area {
+    background-color: rgb(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+.add-area form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.add-area input {
+    padding: 8px;
+    border: 1px solid #c3bdbd;
+    border-radius: 8px;
+    outline: none;
+}
+.checkbox-group {
+    display: flex;
+    gap: 12px;
+}
+.add-button {
+    padding: 8px 16px;
+    background-color: #7499c1;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.add-button:hover {
+    background-color: #5a77a0;
+}
+.add-button:active {
+    transform: translateY(2px) scale(0.98);
 }
